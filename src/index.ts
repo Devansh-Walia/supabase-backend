@@ -1,12 +1,14 @@
 import express from "express";
-import dotenv from "dotenv";
-
-dotenv.config();
+import { applicationConfig } from "./config";
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = applicationConfig.port;
 
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Hello! Welcome to the Supabase MFA API service");
+});
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
