@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 
 import authRoutes from './routes/authRoutes';
 import userRoutes from './routes/userRoutes';
+import dbRoutes from './routes/dbRoutes';
 
 dotenv.config();
 
@@ -16,6 +17,9 @@ app.use('/auth', authRoutes);
 
 // Use the user routes
 app.use('/api', userRoutes);
+
+// Use the db routes
+app.use('/api/db', dbRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
