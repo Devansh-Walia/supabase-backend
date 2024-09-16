@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import supabase from '../supabase';
+import { AuthenticatedRequest } from '../types';
 
 export const listUsers = async (req: Request, res: Response) => {
   const limit = parseInt(req.query.limit as string) || 10;
@@ -21,4 +22,8 @@ export const listUsers = async (req: Request, res: Response) => {
   }));
 
   res.json(usersWithMFA);
+};
+
+export const getMe = (req: AuthenticatedRequest, res: Response) => {
+  res.json(req.user);
 };
