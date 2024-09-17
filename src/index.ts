@@ -27,10 +27,10 @@ app.use('/api/db', dbRoutes);
 app.use('/api/projects', projectsRoutes);
 
 // Schedule the sync process to run every hour
-cron.schedule('* * * * *', async () => {
-  console.log('Syncing projects...');
+cron.schedule('0 * * * *', async () => {
+  // console.log('Syncing projects...');
   // await syncProjects();
-  console.log('Projects synced successfully');
+  // console.log('Projects synced successfully');
 });
 
 app.listen(port, () => {
