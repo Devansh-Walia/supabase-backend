@@ -14,8 +14,6 @@ export const listTablesWithRLS = async (
       return res.status(400).json({ error: error.message });
     }
 
-    console.log('RPC Data:', data);
-
     res.json(data);
   } catch (err) {
     console.error('Unexpected Error:', err);
