@@ -7,6 +7,7 @@ import authRoutes from './routes/authRoutes';
 import userRoutes from './routes/userRoutes';
 import dbRoutes from './routes/dbRoutes';
 import projectsRoutes from './routes/projectsRoutes';
+import morgan from 'morgan';
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 
 app.use(express.json());
+app.use(morgan('combined'));
 
 // Use the auth routes
 app.use('/auth', authRoutes);
